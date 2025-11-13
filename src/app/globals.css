@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-color: #ffffff;
+  --bg-color2: #f8f8f8;
+  --text-color-1: #3c3c3c;
+  --text-color-2: #787879;
+  --primary01: #e5ad93;
+  --primary02: #edd3ca;
+  --primary03: #7b0416;
+
+  --title-font: "Zalando Sans", sans-serif;
+  --text-font: "Open Sans", sans-serif;
 }
 
-@theme inline {
+/* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -23,4 +31,4 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
