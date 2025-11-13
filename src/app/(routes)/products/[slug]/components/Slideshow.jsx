@@ -34,28 +34,30 @@ const Slideshow = ({ images }) => {
         />
       </div>
 
-      {/* Thumbnails */}
-      <div className="mt-4 flex gap-2">
-        {images.map((image, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentImage(index)}
-            className={`cursor-pointer overflow-hidden rounded border-2 transition-all hover:scale-105 ${
-              currentImage === index
-                ? "border-black"
-                : "border-gray-300 hover:border-gray-500"
-            }`}
-          >
-            <Image
-              src={image}
-              alt={`Thumbnail ${index + 1}`}
-              width={80}
-              height={80}
-              className="cursor-pointer object-cover"
-            />
-          </button>
-        ))}
-      </div>
+      {/* Thumbnails - vis kun hvis der er mere end 1 billede */}
+      {images.length > 1 && (
+        <div className="mt-4 flex gap-2">
+          {images.map((image, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImage(index)}
+              className={`cursor-pointer overflow-hidden rounded border-2 transition-all hover:scale-105 ${
+                currentImage === index
+                  ? "border-black"
+                  : "border-gray-300 hover:border-gray-500"
+              }`}
+            >
+              <Image
+                src={image}
+                alt={`Thumbnail ${index + 1}`}
+                width={80}
+                height={80}
+                className="cursor-pointer object-cover"
+              />
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

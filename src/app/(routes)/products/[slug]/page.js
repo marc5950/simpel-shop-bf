@@ -25,7 +25,7 @@ const Singleview = async ({ params }) => {
         <IoMdArrowRoundBack />
         Tilbage til produkter
       </Link>
-      <div className="grid grid-cols-[3fr_1fr] gap-16">
+      <div className="grid gap-16 sm:grid-cols-[3fr_1fr]">
         <Product productData={productData} />
         <Cart />
       </div>
