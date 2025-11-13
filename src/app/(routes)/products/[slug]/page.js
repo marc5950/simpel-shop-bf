@@ -23,7 +23,7 @@ const Singleview = async ({ params }) => {
         className="hover:text-text2 flex items-center gap-2 transition-all duration-200 ease-in-out"
       >
         <IoMdArrowRoundBack />
-        Tilbage til produkter
+        Tilbage
       </Link>
       <div className="grid gap-16 sm:grid-cols-[3fr_1fr]">
         <Product productData={productData} />
