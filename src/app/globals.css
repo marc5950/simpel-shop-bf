@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
-:root {
-  --bg-color: #ffffff;
-  --bg-color2: #f8f8f8;
-  --text-color-1: #3c3c3c;
-  --text-color-2: #787879;
-  --primary01: #e5ad93;
-  --primary02: #edd3ca;
-  --primary03: #7b0416;
+@theme {
+  ---color-bg: #ffffff;
+  --color-bg2: #f8f8f8;
+  --color-text1: #3c3c3c;
+  --color-text2: #787879;
+  --color-primary01: #e5ad93;
+  --color-primary02: #edd3ca;
+  --color-primary03: #7b0416;
 
-  --title-font: "Zalando Sans", sans-serif;
-  --text-font: "Open Sans", sans-serif;
+  --font-title: "Zalando Sans", sans-serif;
+  --font-text: "Open Sans", sans-serif;
 }
 
 /* @theme inline {
