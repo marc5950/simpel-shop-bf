@@ -4,7 +4,7 @@ import CardList from "./CardList";
 
 const ProductsContainer = () => {
   return (
-    <section>
+    <section className="mx-10 p-4">
       <FilterBtn />
       <SeachBar />
       <CardList />
