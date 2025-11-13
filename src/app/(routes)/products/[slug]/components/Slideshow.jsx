@@ -14,7 +14,7 @@ const Slideshow = ({ images }) => {
   };
 
   return (
-    <div>
+    <div className="grow">
       <div
         className="relative overflow-hidden rounded border-2 border-black"
         onMouseMove={handleMouseMove}

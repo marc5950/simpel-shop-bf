@@ -1,11 +1,11 @@
 import ReviewStars from "./ReviewStars";
 import ReviewElement from "./ReviewElement";
 
-const Reviews = () => {
+const Reviews = ({ reviews, rating }) => {
   return (
-    <section>
-      <ReviewStars />
-      <ReviewElement />
+    <section className="flex flex-col gap-6">
+      <ReviewStars rating={rating} />
+      <ReviewElement reviews={reviews} />
     </section>
   );
 };
