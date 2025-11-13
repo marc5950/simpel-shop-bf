@@ -1,7 +1,12 @@
+import Link from "next/link";
+
 const Header = () => {
   return (
     <div>
-      <nav>Header component</nav>
+      <nav>
+        <Link href={"/"}>Hjem</Link>
+        <Link href={"/products"}>Products</Link>
+      </nav>
     </div>
   );
 };
