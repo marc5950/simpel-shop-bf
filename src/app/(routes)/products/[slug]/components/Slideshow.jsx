@@ -4,6 +4,8 @@ import { useState } from "react";
 
 const Slideshow = ({ images }) => {
   const [position, setPosition] = useState({ x: 50, y: 50 });
+  // Ud fra index og images array, vælg hvilket billede der vises
+  // Som standard vises det første billede (index 0)
   const [currentImage, setCurrentImage] = useState(0);
 
   const handleMouseMove = (e) => {

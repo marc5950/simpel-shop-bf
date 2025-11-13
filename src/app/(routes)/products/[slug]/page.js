@@ -4,11 +4,15 @@ import Reviews from "./components/Reviews";
 import Link from "next/link";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
+// Async funktion til at hente og vise data for et enkelt produkt baseret på slug
+// 'params' objektet indeholder ruteparametre, herunder 'slug'
+// 'slug' bruges til at identificere det specifikke produkt
 const Singleview = async ({ params }) => {
   const { slug } = await params;
 
   // Hent produkt data baseret på slug
   const response = await fetch(`https://dummyjson.com/products/${slug}`);
+  // Konverter respons til JSON
   const productData = await response.json();
   console.log("Data om fetchet produkt", productData);
 

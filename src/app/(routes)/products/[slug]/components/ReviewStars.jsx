@@ -6,6 +6,8 @@ const ReviewStars = ({ rating }) => {
   // Generer array med 5 stjerner baseret på rating
   const stars = [];
 
+  // Loop gennem 1 til 5 for at skabe stjernerne
+  // For hver iteration, tjek om rating er større end eller lig med 1(i) for fuld stjerne, eller større end eller lig med 1(i) - 0.5 for halv stjerne, ellers tom stjerne
   for (let i = 1; i <= 5; i++) {
     if (rating >= i) {
       // Fuld stjerne
