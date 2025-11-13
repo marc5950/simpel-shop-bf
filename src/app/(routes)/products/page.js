@@ -1,7 +1,13 @@
-export const Products = () => {
+import ProductsContainer from "./components/ProductsContainer";
+import Cart from "@/components/Cart";
+
+const Products = () => {
   return (
-    <div>
-      <h1>Products</h1>
-    </div>
+    <main>
+      <ProductsContainer />
+      <Cart />
+    </main>
   );
 };
+
+export default Products;

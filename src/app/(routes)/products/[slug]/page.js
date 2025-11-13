@@ -1,7 +1,15 @@
-export const Singleview = () => {
+import Product from "./components/Product";
+import Cart from "@src/components/Cart";
+import Reviews from "./components/Reviews";
+
+const Singleview = () => {
   return (
-    <div>
-      <h1>Single Product View</h1>
-    </div>
+    <main>
+      <Product />
+      <Cart />
+      <Reviews />
+    </main>
   );
 };
+
+export default Singleview;

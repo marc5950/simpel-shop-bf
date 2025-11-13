@@ -1,7 +1,15 @@
-export const Payments = () => {
+import ProductElement from "./components/ProductElement";
+import TotalPayment from "./components/TotalPayment";
+import Btn from "@/components/Btn";
+
+const Payments = () => {
   return (
-    <div>
-      <h1>Payments</h1>
-    </div>
+    <main>
+      <ProductElement />
+      <TotalPayment />
+      <Btn text="Betal" />
+    </main>
   );
 };
+
+export default Payments;
