@@ -1,5 +1,5 @@
 const ProductInfo = ({ productData }) => {
-  const hasDiscount = productData.discountPercentage > 0;
+  const hasDiscount = productData.discountPercentage > 10;
   const discountedPrice = hasDiscount
     ? (productData.price * (1 - productData.discountPercentage / 100)).toFixed(
         2,
@@ -19,17 +19,12 @@ const ProductInfo = ({ productData }) => {
       )}
 
       {/* Price */}
-      <div className="flex items-baseline gap-3">
+      <div className="flex items-center gap-3">
         {hasDiscount ? (
           <>
-            <span className="text-primary03 text-3xl font-bold">
-              ${discountedPrice}
-            </span>
+            <span className="text-3xl font-bold">${discountedPrice}</span>
             <span className="text-xl text-gray-500 line-through">
               ${productData.price}
-            </span>
-            <span className="bg-primary03 rounded px-2 py-1 text-sm font-semibold text-white">
-              -{productData.discountPercentage}%
             </span>
           </>
         ) : (
