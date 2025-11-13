@@ -25,7 +25,7 @@ const Slideshow = ({ images }) => {
           width={500}
           height={500}
           loading="eager"
-          className="cursor-zoom-in p-4 transition-transform duration-200 ease-out hover:scale-120"
+          className="cursor-zoom-in p-4 transition-transform duration-200 ease-out hover:scale-130"
           style={{
             transformOrigin: `${position.x}% ${position.y}%`,
           }}

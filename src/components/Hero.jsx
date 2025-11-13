@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="-mt-[104px] grid max-h-full">
+    <section className="-mt-[112px] grid max-h-full">
       <Image
         src={HeroImg}
         alt="Hero Image"

@@ -16,7 +16,7 @@ const Singleview = async ({ params }) => {
         <Product productData={productData} />
         <Cart />
       </div>
-      <span className="h-1 w-[30%] place-self-center rounded bg-black"></span>
+      <span className="h-1 w-[50%] place-self-center rounded bg-gray-200"></span>
       <Reviews reviews={productData.reviews} rating={productData.rating} />
     </main>
   );

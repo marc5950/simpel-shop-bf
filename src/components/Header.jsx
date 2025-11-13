@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className="z-10">
       <nav>
-        <ul className="bg-bg2 mx-10 mt-4 mt-10 flex gap-4 rounded p-4">
+        <ul className="bg-bg2 mx-10 mt-10 mb-4 flex gap-4 rounded p-4">
           <li>
             <Link href={"/"}>Hjem</Link>
           </li>
