@@ -1,4 +1,8 @@
 @import "tailwindcss";
+:root {
+  --font-title: "Zalando Sans", sans-serif;
+  --font-text: "Open Sans", sans-serif;
+}
 
 @theme {
   --color-bg: #ffffff;
@@ -12,6 +16,23 @@
 
   --font-title: "Zalando Sans", sans-serif;
   --font-text: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-family: var(--font-title);
+  cursor: default;
+}
+
+p,
+li {
+  font-family: var(--font-text);
+  cursor: default;
 }
 
 /* @theme inline {

@@ -29,11 +29,13 @@ export default function RootLayout({ children }) {
         />
 
         <link
+          as="font"
           href="https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
           rel="stylesheet"
         />
 
         <link
+          as="font"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
           rel="stylesheet"
         />
