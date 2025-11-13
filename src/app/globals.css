@@ -5,9 +5,10 @@
   --color-bg2: #f8f8f8;
   --color-text1: #3c3c3c;
   --color-text2: #787879;
-  --color-primary01: #e5ad93;
-  --color-primary02: #edd3ca;
-  --color-primary03: #7b0416;
+  --color-primary01: rgba(229, 173, 147, 1);
+  --color-primary01-opacity: rgba(229, 173, 147, 0.5);
+  --color-primary02: rgba(123, 4, 22, 1);
+  --color-primary02-opacity: rgba(123, 4, 22, 0.5);
 
   --font-title: "Zalando Sans", sans-serif;
   --font-text: "Open Sans", sans-serif;
