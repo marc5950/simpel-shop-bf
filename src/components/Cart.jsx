@@ -4,6 +4,7 @@ import Image from "next/image";
 import Btn from "./Btn";
 import { CiSquarePlus } from "react-icons/ci";
 import { CiSquareMinus } from "react-icons/ci";
+import Link from "next/link";
 
 const Cart = () => {
   const cart = useStore((state) => state.cart);
@@ -41,7 +42,7 @@ const Cart = () => {
           return (
             <div
               key={item.id}
-              className="flex gap-3 border-b border-gray-200 pb-4"
+              className="@container flex gap-3 border-b border-gray-200 pb-4"
             >
               {/* Thumbnail */}
               <Image
@@ -49,14 +50,17 @@ const Cart = () => {
                 alt={item.title}
                 width={60}
                 height={60}
-                className="rounded object-cover"
+                className="hidden rounded object-cover @3xs:block"
               />
 
               {/* Info */}
               <div className="flex flex-1 flex-col gap-1">
-                <h3 className="text-sm font-medium">{item.title}</h3>
+                <Link className="hover:underline" href={`/products/${item.id}`}>
+                  <h3 className="cursor-pointer! text-sm font-medium">
+                    {item.title}
+                  </h3>
+                </Link>
                 <p className="text-sm text-gray-600">${price.toFixed(2)}</p>
-
                 {/* Quantity controls */}
                 <div className="flex items-center gap-2">
                   <button
@@ -85,7 +89,7 @@ const Cart = () => {
 
       {/* Total */}
       <div className="flex flex-col gap-4 border-t border-gray-300 pt-4">
-        <p className="flex justify-between text-lg font-semibold">
+        <p className="flex justify-between gap-2 text-lg font-semibold">
           <span>Total:</span>
           <span>${total.toFixed(2)}</span>
         </p>

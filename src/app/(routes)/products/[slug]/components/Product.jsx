@@ -4,7 +4,7 @@ import ProductBuy from "./ProductBuy";
 
 const Product = ({ productData }) => {
   return (
-    <section className="flex gap-6">
+    <section className="flex flex-col gap-6 lg:flex-row">
       <Slideshow images={productData.images} />
       <div className="flex flex-col gap-10">
         <ProductInfo productData={productData} />
