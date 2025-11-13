@@ -111,7 +111,7 @@ const Cart = () => {
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
                   >
-                    <CiSquareMinus className="h-6 w-6 cursor-pointer rounded transition-all duration-300 hover:bg-gray-100" />
+                    <CiSquareMinus className="h-6 w-6 cursor-pointer rounded transition-all duration-300 ease-in-out hover:bg-gray-100" />
                   </button>
                   {/* Vis nuværende quantity */}
                   <span className="text-sm">{item.quantity}</span>
@@ -119,7 +119,7 @@ const Cart = () => {
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
                   >
-                    <CiSquarePlus className="h-6 w-6 cursor-pointer rounded transition-all duration-300 hover:bg-gray-100" />
+                    <CiSquarePlus className="h-6 w-6 cursor-pointer rounded transition-all duration-300 ease-in-out hover:bg-gray-100" />
                   </button>
                   {/* Fjern knap - fjern produkt fra kurv */}
                   <button

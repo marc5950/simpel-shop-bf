@@ -20,7 +20,7 @@ const Singleview = async ({ params }) => {
     <main className="m-10 flex flex-col gap-10">
       <Link
         href="/products"
-        className="hover:text-text2 flex items-center gap-2"
+        className="hover:text-text2 flex items-center gap-2 transition-all duration-200 ease-in-out"
       >
         <IoMdArrowRoundBack />
         Tilbage til produkter
