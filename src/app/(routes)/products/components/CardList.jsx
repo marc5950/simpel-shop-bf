@@ -1,3 +1,4 @@
+"use cache";
 import Card from "./Card";
 
 const CardList = async () => {
