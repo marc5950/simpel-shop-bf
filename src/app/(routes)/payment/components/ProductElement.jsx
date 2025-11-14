@@ -58,17 +58,23 @@ const ProductElement = () => {
 
               {/* Produkt info */}
               <div className="flex flex-1 flex-col gap-2">
-                {/* Titel */}
-                <Link href={`/products/${item.id}`}>
-                  <h3 className="text-lg font-medium hover:underline">
-                    {item.title}
-                  </h3>
-                </Link>
+                <div>
+                  {/* Titel */}
+                  <Link href={`/products/${item.id}`}>
+                    <h3 className="cursor-pointer! text-lg font-medium hover:underline">
+                      {item.title}
+                    </h3>
+                  </Link>
 
-                {/* Brand (hvis tilgængelig) */}
-                {item.brand && (
-                  <p className="text-sm text-gray-600">{item.brand}</p>
-                )}
+                  {/* Brand (hvis tilgængeligt) */}
+                  {item.brand && (
+                    <Link href={`/products?sortBy=${item.brand}&order=asc`}>
+                      <p className="cursor-pointer! text-sm text-gray-600 hover:underline">
+                        {item.brand}
+                      </p>
+                    </Link>
+                  )}
+                </div>
 
                 {/* Pris */}
                 <div className="flex flex-col gap-1">
@@ -86,6 +92,9 @@ const ProductElement = () => {
                     </div>
                   )}
                 </div>
+
+                {/* Shipping time */}
+                <p className="font-semibold">{item.shippingInformation}</p>
               </div>
 
               {/* Quantity kontrols og fjern knap - til højre */}

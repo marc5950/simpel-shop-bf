@@ -59,8 +59,10 @@ const ProductInfo = ({ productData }) => {
           onClick={() => setDetailsOpen(!detailsOpen)}
           className="flex w-full cursor-pointer items-center justify-between text-lg font-semibold transition-colors hover:text-gray-700"
         >
-          <span>Product Details</span>
-          <span>{detailsOpen ? <FaMinus /> : <FaPlus />}</span>
+          <span className="cursor-pointer!">Product Details</span>
+          <span className="cursor-pointer!">
+            {detailsOpen ? <FaMinus /> : <FaPlus />}
+          </span>
         </button>
         <div
           className={`grid transition-all duration-300 ease-in-out ${
@@ -109,8 +111,10 @@ const ProductInfo = ({ productData }) => {
             onClick={() => setSizeOpen(!sizeOpen)}
             className="flex w-full cursor-pointer items-center justify-between text-lg font-semibold transition-colors hover:text-gray-700"
           >
-            <span>Size</span>
-            <span>{sizeOpen ? <FaMinus /> : <FaPlus />}</span>
+            <span className="cursor-pointer!">Size</span>
+            <span className="cursor-pointer!">
+              {sizeOpen ? <FaMinus /> : <FaPlus />}
+            </span>
           </button>
           <div
             className={`grid transition-all duration-300 ease-in-out ${
