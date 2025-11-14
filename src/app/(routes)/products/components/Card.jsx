@@ -4,7 +4,7 @@ import Btn from "@/components/Btn";
 
 const Card = async ({ product }) => {
   return (
-    <Link href={`/detalje/${product.id}`}>
+    <Link href={`/products/${product.id}`}>
       <div className="bg-bg2 rounded-2xl px-8 py-7 shadow-lg">
         <Image
           loading="eager"
