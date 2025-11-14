@@ -4,18 +4,38 @@ import Cart from "@/components/Cart";
 import Reviews from "./components/Reviews";
 import Link from "next/link";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { Suspense } from "react";
+
+// Async komponent til at hente og vise produkt data
+async function ProductData({ slug }) {
+  // Hent produkt data baseret på slug
+  const response = await fetch(`https://dummyjson.com/products/${slug}`);
+  // Konverter respons til JSON
+  const productData = await response.json();
+  console.log("Data om fetchet produkt", productData);
+
+  return (
+    <>
+      <div className="grid gap-16 sm:grid-cols-[3fr_1fr]">
+        <Product productData={productData} />
+        <Cart />
+      </div>
+      <span className="h-1 w-[20%] place-self-center rounded bg-gray-200"></span>
+      <Reviews reviews={productData.reviews} rating={productData.rating} />
+    </>
+  );
+}
+
+// Loading fallback komponent
+function FallbackMessage() {
+  return <div>Der er sket en fejl</div>;
+}
 
 // Async funktion til at hente og vise data for et enkelt produkt baseret på slug
 // 'params' objektet indeholder ruteparametre, herunder 'slug'
 // 'slug' bruges til at identificere det specifikke produkt
 const Singleview = async ({ params }) => {
   const { slug } = await params;
-
-  // Hent produkt data baseret på slug
-  const response = await fetch(`https://dummyjson.com/products/${slug}`);
-  // Konverter respons til JSON
-  const productData = await response.json();
-  console.log("Data om fetchet produkt", productData);
 
   return (
     <main className="m-10 flex flex-col gap-10">
@@ -26,12 +46,10 @@ const Singleview = async ({ params }) => {
         <IoMdArrowRoundBack />
         Tilbage
       </Link>
-      <div className="grid gap-16 sm:grid-cols-[3fr_1fr]">
-        <Product productData={productData} />
-        <Cart />
-      </div>
-      <span className="h-1 w-[20%] place-self-center rounded bg-gray-200"></span>
-      <Reviews reviews={productData.reviews} rating={productData.rating} />
+
+      <Suspense fallback={<FallbackMessage />}>
+        <ProductData slug={slug} />
+      </Suspense>
     </main>
   );
 };
