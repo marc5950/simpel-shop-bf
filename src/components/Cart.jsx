@@ -161,7 +161,9 @@ const Cart = () => {
           <span>${total.toFixed(2)}</span>
         </p>
         {/* Gå til betaling knap */}
-        <Btn text="Gå til betaling" type="primary" />
+        <Link href="/payment">
+          <Btn text="Gå til betaling" type="primary" />
+        </Link>
       </div>
     </section>
   );
