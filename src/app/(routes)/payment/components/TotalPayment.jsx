@@ -20,7 +20,7 @@ const TotalPayment = () => {
   const hasDiscount = total < subtotal;
 
   // Levering (gratis hvis over 50)
-  const { shipping, shippingCost } = calculateShipping(subtotal);
+  const { shipping, freeShippingThreshold } = calculateShipping(subtotal);
   const finalTotal = total + shipping;
 
   return (
@@ -44,7 +44,7 @@ const TotalPayment = () => {
           </div>
           {shipping !== 0 && (
             <p className="text-sm text-gray-400">
-              Gratis levering ved køb over ${shippingCost}
+              Gratis levering ved køb over ${freeShippingThreshold}
             </p>
           )}
         </div>

@@ -47,7 +47,7 @@ export const calculateTotal = (cart) => {
  * @param {number} subtotal - Subtotal før levering
  * @param {number} freeShippingThreshold - Tjek for gratis levering
  * @param {number} shippingCost - Leveringsomkostninger
- * @returns {{shipping: number, shippingCost: number}} Objekt med shipping (faktisk pris) og shippingCost (standardpris)
+ * @returns {{shipping: number, freeShippingThreshold: number}} Objekt med shipping (faktisk pris) og freeShippingThreshold (standardpris)
  */
 export const calculateShipping = (
   subtotal,
@@ -56,7 +56,7 @@ export const calculateShipping = (
 ) => {
   return {
     shipping: subtotal >= freeShippingThreshold ? 0 : shippingCost,
-    shippingCost: shippingCost,
+    freeShippingThreshold: freeShippingThreshold,
   };
 };
 
