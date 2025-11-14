@@ -1,28 +1,26 @@
 "use client";
 import useStore from "@/store/cart";
 import Btn from "@/components/Btn";
+import {
+  calculateSubtotal,
+  calculateTotal,
+  calculateShipping,
+  calculateSavings,
+} from "@/utils/priceCalculations";
 
 const TotalPayment = () => {
   const cart = useStore((state) => state.cart);
 
   // Beregn subtotal (før discount)
-  const subtotal = cart.reduce((sum, item) => {
-    return sum + item.price * item.quantity;
-  }, 0);
+  const subtotal = calculateSubtotal(cart);
 
   // Beregn total (efter discount)
-  const total = cart.reduce((sum, item) => {
-    const price =
-      item.discountPercentage > 10
-        ? item.price * (1 - item.discountPercentage / 100)
-        : item.price;
-    return sum + price * item.quantity;
-  }, 0);
+  const total = calculateTotal(cart);
 
   const hasDiscount = total < subtotal;
 
   // Levering (gratis hvis over 50)
-  const shipping = subtotal >= 50 ? 0 : 39;
+  const { shipping, shippingCost } = calculateShipping(subtotal);
   const finalTotal = total + shipping;
 
   return (
@@ -44,9 +42,11 @@ const TotalPayment = () => {
               {shipping === 0 ? "Gratis" : `$${shipping.toFixed(2)}`}
             </span>
           </div>
-          <p className="text-sm text-gray-400">
-            Gratis levering ved køb over $50
-          </p>
+          {shipping !== 0 && (
+            <p className="text-sm text-gray-400">
+              Gratis levering ved køb over ${shippingCost}
+            </p>
+          )}
         </div>
 
         {/* Besparelse hvis discount */}
@@ -54,7 +54,7 @@ const TotalPayment = () => {
           <div className="flex justify-between text-green-600">
             <span className="font-medium">Besparelse</span>
             <span className="font-semibold">
-              -${(subtotal - total).toFixed(2)}
+              -${calculateSavings(subtotal, total).toFixed(2)}
             </span>
           </div>
         )}
@@ -66,8 +66,11 @@ const TotalPayment = () => {
         </div>
 
         {/* Betal knap */}
-        <div className="mt-4">
+        <div className="group relative mt-4 w-max">
           <Btn text="Betal" type="primary" />
+          <span className="tooltiptext bg-bg2 absolute -top-3 left-[110%] hidden w-max rounded p-2 group-hover:block">
+            Bare send mobilepay min løve
+          </span>
         </div>
       </div>
     </div>
