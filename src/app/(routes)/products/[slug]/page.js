@@ -1,3 +1,4 @@
+"use cache";
 import Product from "./components/Product";
 import Cart from "@/components/Cart";
 import Reviews from "./components/Reviews";
