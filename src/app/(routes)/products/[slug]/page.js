@@ -1,4 +1,3 @@
-"use cache";
 import Product from "./components/Product";
 import Cart from "@/components/Cart";
 import Reviews from "./components/Reviews";
@@ -9,7 +8,9 @@ import { Suspense } from "react";
 // Async komponent til at hente og vise produkt data
 async function ProductData({ slug }) {
   // Hent produkt data baseret på slug
-  const response = await fetch(`https://dummyjson.com/products/${slug}`);
+  const response = await fetch(`https://dummyjson.com/products/${slug}`, {
+    cache: "force-cache", // Cache data for bedre performance
+  });
   // Konverter respons til JSON
   const productData = await response.json();
   console.log("Data om fetchet produkt", productData);
@@ -28,14 +29,14 @@ async function ProductData({ slug }) {
 
 // Loading fallback komponent
 function FallbackMessage() {
-  return <div>Der er sket en fejl</div>;
+  return <div>Indlæser produkt...</div>;
 }
 
 // Async funktion til at hente og vise data for et enkelt produkt baseret på slug
 // 'params' objektet indeholder ruteparametre, herunder 'slug'
 // 'slug' bruges til at identificere det specifikke produkt
 const Singleview = async ({ params }) => {
-  const { slug } = await params;
+  const { slug } = params;
 
   return (
     <main className="m-10 flex flex-col gap-10">
