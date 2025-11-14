@@ -3,6 +3,10 @@ import useStore from "@/store/cart";
 import Image from "next/image";
 import Link from "next/link";
 import { CiSquarePlus, CiSquareMinus } from "react-icons/ci";
+import {
+  calculatePrice,
+  hasDiscount as checkDiscount,
+} from "@/utils/priceCalculations";
 
 const ProductElement = () => {
   // Hent cart og actions fra Zustand store
@@ -32,13 +36,10 @@ const ProductElement = () => {
       <div className="flex flex-col gap-6">
         {cart.map((item) => {
           // Beregn pris (med discount hvis > 10%)
-          const price =
-            item.discountPercentage > 10
-              ? item.price * (1 - item.discountPercentage / 100)
-              : item.price;
+          const price = calculatePrice(item.price, item.discountPercentage);
 
           const originalPrice = item.price;
-          const hasDiscount = item.discountPercentage > 10;
+          const itemHasDiscount = checkDiscount(item.discountPercentage);
 
           return (
             <div
@@ -78,15 +79,13 @@ const ProductElement = () => {
 
                 {/* Pris */}
                 <div className="flex flex-col gap-1">
-                  <span className="text-xl font-bold text-red-600">
-                    ${price.toFixed(2)}
-                  </span>
-                  {hasDiscount && (
+                  <span className="text-xl font-bold">${price.toFixed(2)}</span>
+                  {itemHasDiscount && (
                     <div className="flex items-center gap-2">
                       <span className="text-sm text-gray-500 line-through">
                         Oprindeligt: ${originalPrice.toFixed(2)}
                       </span>
-                      <span className="text-sm font-semibold text-red-600">
+                      <span className="rounded bg-red-200 p-0.5 text-sm font-semibold text-red-600">
                         -{item.discountPercentage.toFixed(0)}%
                       </span>
                     </div>
@@ -119,7 +118,7 @@ const ProductElement = () => {
                 {/* Fjern knap */}
                 <button
                   onClick={() => removeFromCart(item.id)}
-                  className="cursor-pointer text-sm text-red-600 underline hover:text-red-800"
+                  className="cursor-pointer text-sm text-red-600 hover:text-red-800"
                 >
                   Fjern
                 </button>
