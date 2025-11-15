@@ -11,6 +11,7 @@
   --font-size-h5: 20px;
   --font-size-h6: 18px;
 }
+/* Jeg kan ikke få font size til at virke? Jeg undersøger det mandag */
 
 @theme {
   --color-bg: #ffffff;
